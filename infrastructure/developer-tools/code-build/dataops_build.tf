@@ -8,8 +8,8 @@ module "codebuild_project_dataops" {
   artifacts_type           = "S3"
   artifacts_namespace_type = "BUILD_ID"
 
-  encryption_key = "arn:aws:kms:eu-west-1:804792415489:alias/aws/s3"
-  service_role   = "arn:aws:iam::804792415489:role/service-role/codebuild-dataops-etl-service-role"
+  encryption_key = var.kms_key
+  service_role   = data.terraform_remote_state.iam_roles.outputs.codebuild_dataops_etl_service_arn
 
   environment_compute_type                = "BUILD_GENERAL1_MEDIUM"
   environment_image                       = "aws/codebuild/amazonlinux-x86_64-standard:6.0"
@@ -21,7 +21,11 @@ module "codebuild_project_dataops" {
   s3_logs_location = data.terraform_remote_state.s3.outputs.dataops_arn
   s3_logs_status   = "ENABLED"
 
-  source_buildspec                              = file("buildspec/dataops-etl.yaml")
+  source_buildspec = templatefile("buildspec/dataops-etl.yaml", {
+    aws_account_id = data.aws_caller_identity.current.account_id
+    aws_region     = var.aws_region
+  })
+  
   source_git_clone_depth                        = 1
   source_location                               = "https://github.com/Colclough-Doran/dataops-etl.git"
   source_type                                   = "GITHUB"

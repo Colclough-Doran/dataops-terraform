@@ -1,3 +1,5 @@
+data "aws_caller_identity" "current" {}
+
 # https://codeberg.org/codo/dataops-infrastructure/src/branch/main/infrastructure/production/iam/roles
 data "terraform_remote_state" "iam_roles" {
   backend = "s3"
