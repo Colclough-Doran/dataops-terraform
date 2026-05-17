@@ -33,7 +33,7 @@ resource "aws_ecs_service" "dataops_etl" {
   network_configuration {
     assign_public_ip = true
     security_groups = [
-      "sg-0ff4fa902b9f384ce"
+      data.terraform_remote_state.security_groups.outputs.ecs_id
     ]
     subnets = [
       data.terraform_remote_state.vpc.outputs.public_subnet_a_id,
