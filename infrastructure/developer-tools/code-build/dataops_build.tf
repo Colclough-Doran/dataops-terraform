@@ -16,7 +16,7 @@ module "codebuild_project_dataops" {
   environment_type                        = "LINUX_CONTAINER"
   environment_image_pull_credentials_type = "CODEBUILD"
 
-  cloudwatch_logs_group_name = var.project_name_dataops
+  cloudwatch_logs_group_name = "/aws/codebuild/${var.project_name_dataops}"
 
   s3_logs_location = data.terraform_remote_state.s3.outputs.dataops_arn
   s3_logs_status   = "ENABLED"

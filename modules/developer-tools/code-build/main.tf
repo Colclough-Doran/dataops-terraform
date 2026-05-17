@@ -24,10 +24,10 @@ resource "aws_codebuild_project" "this" {
       group_name = var.cloudwatch_logs_group_name
     }
 
-    
+
 
     s3_logs {
-        location = var.s3_logs_location
+      location = var.s3_logs_location
       status   = var.s3_logs_status
     }
   }

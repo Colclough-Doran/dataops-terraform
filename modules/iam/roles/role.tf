@@ -33,6 +33,6 @@ resource "aws_iam_instance_profile" "this" {
 resource "aws_iam_role_policy_attachment" "this" {
   for_each = toset(var.iam_policy_name)
 
-  policy_arn = "arn:aws:iam::aws:policy/${each.key}"
+  policy_arn = each.key
   role       = aws_iam_role.this.name
 }
