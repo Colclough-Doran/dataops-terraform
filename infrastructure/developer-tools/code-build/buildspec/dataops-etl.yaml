@@ -1,0 +1,18 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region ${aws_region} | docker login --username AWS --password-stdin ${aws_account_id}.dkr.ecr.${aws_region}.amazonaws.com
+  build:
+    commands:
+      - echo Building the Docker image...
+      - docker build -t $ImageName -f ./Dockerfile .
+      - docker tag $ImageName:latest ${aws_account_id}.dkr.ecr.${aws_region}.amazonaws.com/$ImageName:latest
+  post_build:
+    commands:
+      - echo Pushing the Docker image...
+      - docker push ${aws_account_id}.dkr.ecr.${aws_region}.amazonaws.com/$ImageName:latest
+env:
+  variables:
+    ImageName: "dataops-etl"

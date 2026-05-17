@@ -1,0 +1,85 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "arn:aws:logs:eu-west-1:804792415489:log-group:/aws/codebuild/dataops-etl",
+                "arn:aws:logs:eu-west-1:804792415489:log-group:/aws/codebuild/dataops-etl:*"
+            ],
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "codebuild:BatchPutCodeCoverages",
+                "codebuild:BatchPutTestCases",
+                "codebuild:CreateReport",
+                "codebuild:CreateReportGroup",
+                "codebuild:UpdateReport"
+            ],
+            "Resource": "arn:aws:codebuild:eu-west-1:804792415489:report-group/dataops-etl-*",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+               "s3:PutObject",
+                "s3:GetObject",
+                "s3:GetBucketAcl",
+                "s3:GetBucketLocation",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::dataops-eu-west-1/etl",
+                "arn:aws:s3:::dataops-eu-west-1/etl/*"
+            ],
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:CompleteLayerUpload",
+                "ecr:InitiateLayerUpload",
+                "ecr:PutImage",
+                "ecr:UploadLayerPart"
+            ],
+            "Resource": "arn:aws:ecr:eu-west-1:804792415489:repository/dataops-etl",
+            "Effect": "Allow"
+        },
+        {
+            "Action": "ecr:GetAuthorizationToken",
+            "Resource": "*",
+            "Effect": "Allow"
+        },
+                {
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:s3:::codepipeline-eu-west-1-*"
+            ],
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:GetObjectVersion",
+                "s3:GetBucketAcl",
+                "s3:GetBucketLocation"
+            ]
+        },
+                {
+            "Effect": "Allow",
+            "Action": [
+                "codestar-connections:GetConnectionToken",
+                "codestar-connections:GetConnection",
+                "codeconnections:GetConnectionToken",
+                "codeconnections:GetConnection",
+                "codeconnections:UseConnection"
+            ],
+            "Resource": [
+                "arn:aws:codestar-connections:eu-west-1:804792415489:connection/56c76a03-13aa-4234-b3ce-ec651de4af5c",
+                "arn:aws:codeconnections:eu-west-1:804792415489:connection/56c76a03-13aa-4234-b3ce-ec651de4af5c"
+            ]
+        }
+    ]
+}

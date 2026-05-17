@@ -2,7 +2,7 @@ module "ec2_instance_jenkins_docker" {
   source = "../../../modules/ec2/instances/jenkins/"
 
   ami_id           = var.instance_ami_id_jenkins_docker
-  instance_name    = "${var.instance_name_jenkins_docker}"
+  instance_name    = var.instance_name_jenkins_docker
   instance_profile = data.terraform_remote_state.iam_roles.outputs.jenkins_docker_instance_profile
 
   instance_type     = var.instance_type_jenkins_docker
