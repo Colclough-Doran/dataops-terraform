@@ -1,4 +1,4 @@
-# https://codeberg.org/codo/dataops-infrastructure/src/branch/main/infrastructure/production/iam/roles
+# https://github.com/Colclough-Doran/dataops-terraform/tree/main/infrastructure/iam/roles
 data "terraform_remote_state" "iam_roles" {
   backend = "s3"
   config = {
@@ -9,7 +9,7 @@ data "terraform_remote_state" "iam_roles" {
   }
 }
 
-# https://codeberg.org/codo/dataops-infrastructure/src/branch/main/infrastructure/production/ec2/key-pairs
+# https://github.com/Colclough-Doran/dataops-terraform/tree/main/infrastructure/ec2/key-pairs
 data "terraform_remote_state" "key_pairs" {
   backend = "s3"
   config = {
@@ -20,7 +20,7 @@ data "terraform_remote_state" "key_pairs" {
   }
 }
 
-# https://codeberg.org/codo/dataops-infrastructure/src/branch/main/infrastructure/production/ec2/security-groups
+# https://github.com/Colclough-Doran/dataops-terraform/tree/main/infrastructure/ec2/security-groups
 data "terraform_remote_state" "security_groups" {
   backend = "s3"
   config = {
@@ -31,7 +31,7 @@ data "terraform_remote_state" "security_groups" {
   }
 }
 
-# https://codeberg.org/codo/dataops-infrastructure/src/branch/main/infrastructure/production/vpc
+# https://github.com/Colclough-Doran/dataops-terraform/tree/main/infrastructure/vpc
 data "terraform_remote_state" "vpc" {
   backend = "s3"
   config = {

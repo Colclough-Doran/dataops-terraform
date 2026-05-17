@@ -1,6 +1,6 @@
 data "aws_caller_identity" "current" {}
 
-# https://codeberg.org/codo/dataops-infrastructure/src/branch/main/infrastructure/production/iam/roles
+# https://github.com/Colclough-Doran/dataops-terraform/tree/main/infrastructure/iam/roles
 data "terraform_remote_state" "iam_roles" {
   backend = "s3"
   config = {
@@ -11,7 +11,7 @@ data "terraform_remote_state" "iam_roles" {
   }
 }
 
-# https://codeberg.org/codo/dataops-infrastructure/src/branch/main/infrastructure/production/iam/roles
+# https://github.com/Colclough-Doran/dataops-terraform/tree/main/infrastructure/iam/roles
 data "terraform_remote_state" "s3" {
   backend = "s3"
   config = {
@@ -22,7 +22,7 @@ data "terraform_remote_state" "s3" {
   }
 }
 
-# https://codeberg.org/codo/dataops-infrastructure/src/branch/main/infrastructure/production/vpc
+# https://github.com/Colclough-Doran/dataops-terraform/tree/main/infrastructure/vpc
 data "terraform_remote_state" "vpc" {
   backend = "s3"
   config = {
