@@ -3,7 +3,7 @@
     "cpu": 1024,
     "environment": [],
     "essential": true,
-    "image": "804792415489.dkr.ecr.eu-west-1.amazonaws.com/dataops-etl@sha256:ad73673c32c5ef90fbca206d11da1938168ba06dce125878d93859db9dd3a2d8",
+    "image": "${var.image}",
     "logConfiguration": {
       "logDriver": "awslogs",
       "options": {
