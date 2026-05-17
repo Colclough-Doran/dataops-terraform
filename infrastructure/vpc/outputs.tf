@@ -1,5 +1,9 @@
 # Public Subnet outputs
 
+output "public_subnet_ids" {
+  value = module.dataops_vpc.public_subnet_ids
+}
+
 output "public_subnet_a_id" {
   value = module.dataops_vpc.public_subnet_a_id
 }

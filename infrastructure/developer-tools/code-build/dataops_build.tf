@@ -3,7 +3,7 @@ module "codebuild_project_dataops" {
   project_name = var.project_name_dataops
 
   artifacts_location       = data.terraform_remote_state.s3.outputs.dataops_name
-  artifacts_name           = var.project_name_dataops
+  artifacts_name           = "codebuild-artifacts"
   artifacts_packaging      = "ZIP"
   artifacts_type           = "S3"
   artifacts_namespace_type = "BUILD_ID"
@@ -25,7 +25,7 @@ module "codebuild_project_dataops" {
     aws_account_id = data.aws_caller_identity.current.account_id
     aws_region     = var.aws_region
   })
-  
+
   source_git_clone_depth                        = 1
   source_location                               = "https://github.com/Colclough-Doran/dataops-etl.git"
   source_type                                   = "GITHUB"
