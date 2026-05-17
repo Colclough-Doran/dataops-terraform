@@ -24,7 +24,7 @@ resource "aws_ecs_task_definition" "default_dataops_etl" {
         logDriver = "awslogs"
         options = {
           awslogs-group         = "test-etl-dataops"
-          awslogs-region        = "eu-west-1"
+          awslogs-region        = "${var.aws_region}"
           awslogs-stream-prefix = "ecs-dataops"
         }
       }
