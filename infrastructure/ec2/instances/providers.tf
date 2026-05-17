@@ -5,7 +5,7 @@ provider "aws" {
   default_tags {
     tags = {
       "Service"       = local.service
-      "Terraform-URL" = local.terraform_url
+      "Terraform_URL" = local.terraform_url
     }
   }
 }

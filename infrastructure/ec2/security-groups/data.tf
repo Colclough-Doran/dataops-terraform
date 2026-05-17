@@ -1,4 +1,4 @@
-# https://codeberg.org/codo/dataops-infrastructure/src/branch/main/infrastructure/production/vpc
+# https://github.com/Colclough-Doran/dataops-terraform/tree/main/infrastructure/vpc
 data "terraform_remote_state" "vpc" {
   backend = "s3"
   config = {
