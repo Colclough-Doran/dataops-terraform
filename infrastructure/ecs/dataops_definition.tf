@@ -6,8 +6,8 @@ resource "aws_ecs_task_definition" "default_dataops_etl" {
   memory                   = "2048"
   network_mode             = "awsvpc"
 
-  execution_role_arn = var.execution_role_arn
-  task_role_arn      = var.task_role_arn
+  execution_role_arn = data.terraform_remote_state.iam_roles.outputs.ecs_dataops_task_execution_arn
+  task_role_arn      = data.terraform_remote_state.iam_roles.outputs.ecs_dataops_task_execution_arn
 
   runtime_platform {
     cpu_architecture        = "X86_64"
