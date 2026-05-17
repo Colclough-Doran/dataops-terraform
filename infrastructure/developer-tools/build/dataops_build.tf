@@ -1,5 +1,5 @@
 module "codebuild_project_dataops" {
-  source       = "../../../modules/developer-tools/code-build"
+  source       = "../../../modules/developer-tools/build"
   project_name = var.project_name_dataops
 
   artifacts_location       = data.terraform_remote_state.s3.outputs.dataops_name
