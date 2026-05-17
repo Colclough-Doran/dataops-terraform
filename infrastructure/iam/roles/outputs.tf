@@ -1,6 +1,11 @@
+output "codebuild_dataops_etl_service_arn" {
+  value = module.iam_role_cb_dataops_etl_service.role_arn
+}
+
 output "eks_cluster_arn" {
   value = module.iam_role_eks_cluster.role_arn
 }
+
 output "eks_worker_node_arn" {
   value = module.iam_role_eks_worker_node.role_arn
 }

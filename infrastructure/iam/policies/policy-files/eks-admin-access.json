@@ -1,0 +1,23 @@
+{
+    "Statement": [
+        {
+            "Action": [
+                "eks:ListFargateProfiles",
+                "eks:DescribeNodegroup",
+                "eks:ListNodegroups",
+                "eks:ListUpdates",
+                "eks:AccessKubernetesApi",
+                "eks:ListAddons",
+                "eks:DescribeCluster",
+                "eks:DescribeAddonVersions",
+                "eks:GetToken",
+                "eks:ListClusters",
+                "eks:ListIdentityProviderConfigs",
+                "iam:ListRoles"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ],
+    "Version": "2012-10-17"
+}
