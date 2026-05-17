@@ -1,8 +1,3 @@
-moved {
-    from = aws_ecs_cluster.this
-    to = module.aws_ecs_cluster_dataops.aws_ecs_cluster.this
-}
-
 module "aws_ecs_cluster_dataops" {
   source = "../../modules/ecs"
 
