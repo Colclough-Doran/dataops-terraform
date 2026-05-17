@@ -8,8 +8,8 @@
                 "logs:PutLogEvents"
             ],
             "Resource": [
-                "arn:aws:logs:eu-west-1:804792415489:log-group:/aws/codebuild/dataops-etl",
-                "arn:aws:logs:eu-west-1:804792415489:log-group:/aws/codebuild/dataops-etl:*"
+                "arn:aws:logs:${aws_region}:${aws_account_id}:log-group:/aws/codebuild/dataops-etl",
+                "arn:aws:logs:${aws_region}:${aws_account_id}:log-group:/aws/codebuild/dataops-etl:*"
             ],
             "Effect": "Allow"
         },
@@ -21,7 +21,7 @@
                 "codebuild:CreateReportGroup",
                 "codebuild:UpdateReport"
             ],
-            "Resource": "arn:aws:codebuild:eu-west-1:804792415489:report-group/dataops-etl-*",
+            "Resource": "arn:aws:codebuild:${aws_region}:${aws_account_id}:report-group/dataops-etl-*",
             "Effect": "Allow"
         },
         {
@@ -33,8 +33,8 @@
                 "s3:ListBucket"
             ],
             "Resource": [
-                "arn:aws:s3:::dataops-eu-west-1/etl",
-                "arn:aws:s3:::dataops-eu-west-1/etl/*"
+                "arn:aws:s3:::dataops-${aws_region}/etl",
+                "arn:aws:s3:::dataops-${aws_region}/etl/*"
             ],
             "Effect": "Allow"
         },
@@ -46,7 +46,7 @@
                 "ecr:PutImage",
                 "ecr:UploadLayerPart"
             ],
-            "Resource": "arn:aws:ecr:eu-west-1:804792415489:repository/dataops-etl",
+            "Resource": "arn:aws:ecr:${aws_region}:${aws_account_id}:repository/dataops-etl",
             "Effect": "Allow"
         },
         {
@@ -57,7 +57,7 @@
                 {
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:s3:::codepipeline-eu-west-1-*"
+                "arn:aws:s3:::codepipeline-${aws_region}-*"
             ],
             "Action": [
                 "s3:PutObject",
@@ -77,8 +77,8 @@
                 "codeconnections:UseConnection"
             ],
             "Resource": [
-                "arn:aws:codestar-connections:eu-west-1:804792415489:connection/56c76a03-13aa-4234-b3ce-ec651de4af5c",
-                "arn:aws:codeconnections:eu-west-1:804792415489:connection/56c76a03-13aa-4234-b3ce-ec651de4af5c"
+                "arn:aws:codestar-connections:${aws_region}:${aws_account_id}:connection/56c76a03-13aa-4234-b3ce-ec651de4af5c",
+                "arn:aws:codeconnections:${aws_region}:${aws_account_id}:connection/56c76a03-13aa-4234-b3ce-ec651de4af5c"
             ]
         }
     ]
