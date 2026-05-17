@@ -1,7 +1,7 @@
 resource "aws_ecs_service" "dataops_etl" {
   name            = "dataops-etl"
   cluster         = module.aws_ecs_cluster_dataops.cluster_arn
-  task_definition = "default-dataops-etl:3"
+  task_definition = aws_ecs_task_definition.default_dataops_etl.arn
   desired_count   = 1
 
   availability_zone_rebalancing = "ENABLED"
@@ -36,12 +36,12 @@ resource "aws_ecs_service" "dataops_etl" {
       "sg-0ff4fa902b9f384ce"
     ]
     subnets = [
-      "subnet-0215fc807eb20db5b",
-      "subnet-03b4b4ca6287c6036",
-      "subnet-03e2e73a401a6c600",
-      "subnet-09b5ad37d03f44549",
-      "subnet-0ae9e7157feed0909",
-      "subnet-0dd84ec37eec2460b"
+      data.terraform_remote_state.vpc.outputs.public_subnet_a_id,
+      data.terraform_remote_state.vpc.outputs.public_subnet_b_id,
+      data.terraform_remote_state.vpc.outputs.public_subnet_c_id,
+      data.terraform_remote_state.vpc.outputs.private_subnet_a_id,
+      data.terraform_remote_state.vpc.outputs.private_subnet_b_id,
+      data.terraform_remote_state.vpc.outputs.private_subnet_c_id
     ]
   }
 
