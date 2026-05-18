@@ -21,3 +21,11 @@ output "eks_admin_access_arn" {
 output "eks_admin_access_name" {
   value = aws_iam_policy.eks_admin_access.name
 }
+
+output "github_cicd_arn" {
+  value = aws_iam_policy.github_cicd.arn
+}
+
+output "github_cicd_name" {
+  value = aws_iam_policy.github_cicd.name
+}
