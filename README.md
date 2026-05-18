@@ -36,7 +36,7 @@ Docker: For local testing of the Python container (optional).
 
 Modules
 
-developer-tools: (Legacy) CodeBuild and CodePipeline modules for CI/CD. 
+developer-tools: (Legacy) CodeBuild module for CI/CD. 
 ec2: EC2 instances, ASG, security groups, and key pairs. 
 ecr: ECR repositories for Docker images. 
 ecs: ECS cluster, task definitions, and services for the Python container. 
@@ -48,5 +48,5 @@ vpc: VPC, subnets, and security groups.
 Troubleshooting
 
 Permission Errors: Ensure IAM roles have the correct policies attached. 
-CodeBuild Fails: Check the build logs in AWS Console for errors in the Dockerfile or Python script. 
 Terraform State Issues: Use terraform state list to inspect resources and terraform import if needed.
+CodeBuild Fails: Check the build logs in AWS Console for errors in the Dockerfile or Python script. 
