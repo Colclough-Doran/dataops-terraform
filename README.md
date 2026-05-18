@@ -27,6 +27,21 @@ Build: GitHub Actions pulls the Python script, builds a Docker image, and pushes
 Deploy: GitHub Actions triggers ECS to run the container.
 Execution: The container accesses S3, processes the Parquet file, and writes the output back to S3.
 
+Logging and Metrics
+
+All metrics and logs are stored within AWS CloudWatch
+ecs container insights can be found under Infrastructure Monitoring > Container Insights
+
+Log groups:
+/aws/ecs/
+/aws/ecs/containerinsights/dataops/performance
+/aws/codebuild/dataops-etl (Legacy)
+
+Metrics 
+All Metrics > CS/ContainerInsights > ClusterName
+All Metrics > CS/ContainerInsights > ClusterName, ServiceName
+All Metrics > CS/ContainerInsights > ClusterName, ContainerName, ServiceName
+
 Prerequisites
 
 AWS Account: With permissions to create ECS, ECR, S3, IAM, VPC, and GitHub Actions resources.
