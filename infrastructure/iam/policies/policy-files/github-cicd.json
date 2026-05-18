@@ -56,6 +56,23 @@
             "Effect": "Allow",
             "Action": "iam:PassRole",
             "Resource": "arn:aws:iam::${aws_account_id}:role/dataops-ecs-task-execution"
+        },
+        {
+            "Sid": "Allows3",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:GetBucketAcl",
+                "s3:GetBucketLocation",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::dataops-${aws_region}/origin-data/",
+                "arn:aws:s3:::dataops-${aws_region}/origin-data/*",
+                "arn:aws:s3:::dataops-${aws_region}/transformed-data/",
+                "arn:aws:s3:::dataops-${aws_region}/transformed-data/*"
+            ]
         }
     ]
 }
