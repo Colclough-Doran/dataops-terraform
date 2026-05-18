@@ -62,6 +62,7 @@ vpc: VPC, subnets, and security groups.
 
 Troubleshooting
 
-Permission Errors: Ensure IAM roles have the correct policies attached. 
+Terraform variable: Project was built using a production.tfvars file to contain environment variables.
 Terraform State Issues: Use terraform state list to inspect resources and terraform import if needed.
+Permission Errors: Ensure IAM roles have the correct policies attached. 
 CodeBuild Fails: Check the build logs in AWS Console for errors in the Dockerfile or Python script. 
