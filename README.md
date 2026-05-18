@@ -27,6 +27,21 @@ Build: GitHub Actions pulls the Python script, builds a Docker image, and pushes
 Deploy: GitHub Actions triggers ECS to run the container.
 Execution: The container accesses S3, processes the Parquet file, and writes the output back to S3.
 
+Logging and Metrics
+
+All metrics and logs are stored within AWS CloudWatch
+ecs container insights can be found under Infrastructure Monitoring > Container Insights
+
+Log groups:
+/aws/ecs/
+/aws/ecs/containerinsights/dataops/performance
+/aws/codebuild/dataops-etl (Legacy)
+
+Metrics 
+All Metrics > CS/ContainerInsights > ClusterName
+All Metrics > CS/ContainerInsights > ClusterName, ServiceName
+All Metrics > CS/ContainerInsights > ClusterName, ContainerName, ServiceName
+
 Prerequisites
 
 AWS Account: With permissions to create ECS, ECR, S3, IAM, VPC, and GitHub Actions resources.
@@ -36,7 +51,7 @@ Docker: For local testing of the Python container (optional).
 
 Modules
 
-developer-tools: (Legacy) CodeBuild and CodePipeline modules for CI/CD. 
+developer-tools: (Legacy) CodeBuild module for CI/CD. 
 ec2: EC2 instances, ASG, security groups, and key pairs. 
 ecr: ECR repositories for Docker images. 
 ecs: ECS cluster, task definitions, and services for the Python container. 
@@ -48,5 +63,5 @@ vpc: VPC, subnets, and security groups.
 Troubleshooting
 
 Permission Errors: Ensure IAM roles have the correct policies attached. 
-CodeBuild Fails: Check the build logs in AWS Console for errors in the Dockerfile or Python script. 
 Terraform State Issues: Use terraform state list to inspect resources and terraform import if needed.
+CodeBuild Fails: Check the build logs in AWS Console for errors in the Dockerfile or Python script. 
