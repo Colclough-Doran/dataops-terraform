@@ -30,7 +30,7 @@ jobs:
       - name: Validating Terraform Code
         run: |
           echo Validating Terraform code
-          terraform plan -var-file="production.tfvars"
+          terraform plan
           echo Validation complete
           
       - name: Plan
