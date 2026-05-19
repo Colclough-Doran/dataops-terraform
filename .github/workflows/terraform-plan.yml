@@ -36,5 +36,5 @@ jobs:
       - name: Plan
         run: |
           echo Running Terraform plan
-          terraform init
+          terraform plan
           echo Plan stage complete
